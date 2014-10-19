@@ -19,7 +19,7 @@
 	</div>
 	<br>
 	<div class="login" id="container">
-    <form action='#' method="POST">
+    <form action="" method="POST">
 		<input type="text" placeholder="username" name="username" id="username"><br>
 		<input type="password" placeholder="password" name="password" id="password"><br>
 		<input type="button" value="Login" id="login">
