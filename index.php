@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <!-- Begin Head -->
 <head>
   <meta charset="UTF-8">
   <title>WebServer Login</title>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <script src="js/prefix.js"></script>
+  <script type="text/javascript" src="js/prefix.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
 <!-- Begin Body -->
@@ -18,10 +19,10 @@
 	</div>
 	<br>
 	<div class="login">
-    <form action='#' method="get">
-		<input type="text" placeholder="username" name="user"><br>
-		<input type="password" placeholder="password" name="password"><br>
-		<input type="button" value="Login">
+    <form action='#' method="post">
+		<input type="text" placeholder="username" name="username" id="username"><br>
+		<input type="password" placeholder="password" name="password" id="password"><br>
+		<input type="button" value="Login" id="login">
     </form>
 	</div>
 </body>
