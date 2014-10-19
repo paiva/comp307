@@ -6,8 +6,8 @@
   <meta charset="UTF-8">
   <title>WebServer Login</title>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <script type="text/javascript" src="js/prefix.js"></script>
-  <script type="text/javascript" src="js/jquery.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/jquery.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/prefix.js"></script>
 </head>
 
 <!-- Begin Body -->
