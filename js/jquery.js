@@ -17,9 +17,11 @@ $(document).ready(function(){
             }else{
                 $('#containter').slideUp('slow').slideDown("slow");
                 $('#username').val('');
-                $('#password').val('');            }
+                $('#password').val('');
+                }
+              }
           });
-        }
+        return false;
     });
 
   });
