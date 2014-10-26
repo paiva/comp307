@@ -1,36 +1,26 @@
-$(document).ready(function(){
-  $('#login').click(function(){
-
-    var username = $('#username').val();
-    var password = $('#password').val();
-    var error = true;
-
-    // Create JSON object
-    var data = {
-                "username" : username,
-                "password" : password
-                };
-
-    // JSON communication to a PHP script that will access a mySQL database and return a Reply to the client.
-
-    success: function(data){
-          $.each(data,function(key,value){
-            if(username == value.username && password == value.password){
-              error = false;
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
             }
-          });
-          if(error = false){
-            document.location="login.php?user_login=" + username;
-          }
-            else{
-                $('#containter').slideUp('slow').slideDown("slow");
-                $('#username').val('');
-                $('#password').val('');
-                }
-          var ouput;
-          return output;
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
     });
+    return o;
+};
 
+$(function() {
+    $('form').submit(function() {
+        $('#result').text(JSON.stringify($('form').serializeObject()));
+        return false;
+    });
+});
 
 /*
 $(document).ready(function(){
