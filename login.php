@@ -11,7 +11,7 @@ $db=mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_
 function SignIn()
 {
   session_start();   //starting the session for user profile page
-  if(!empty($_POST['username'] AND !empty($_POST['password'])))   //checking the 'username' name which is from Sign-In.html, is it empty or have some text
+  if(!empty($_POST['username']))   //checking the 'username' name which is from Sign-In.html, is it empty or have some text
   {
   	$query = mysql_query("SELECT *  FROM members where username = '$_POST[username]' AND password = '$_POST[password]'") or die(mysql_error());
   	$row = mysql_fetch_array($query) or die(mysql_error());
