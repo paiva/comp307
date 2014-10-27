@@ -1,3 +1,5 @@
+<?php
+  $html = '
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,10 +33,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#"><span style="font-family: 'Exo';"><span style="color:#D00000">McGill</span> WebServer</span></a>
+          <a class="brand" href="#"><span style="font-family: "Exo";"><span style="color:#D00000">McGill</span> WebServer</span></a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">$Username</a>
+              Welcome <a href="#" class="navbar-link">$Username</a>
               - <a href="#" class="navbar-link">Logout</a>
             </p>
             <ul class="nav">
@@ -118,8 +120,7 @@
       </footer>
 
     </div>
-    <scripls
-    t src="js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>
     <script src="js/bootstrap-modal.js"></script>
@@ -134,4 +135,6 @@
     <script src="js/bootstrap-typeahead.js"></script>
 
   </body>
-</html>
+</html>';
+  echo $html;
+?>
