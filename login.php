@@ -8,21 +8,22 @@ define('DB_PASSWORD','');
 $con = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error());
 $db = mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
 
-function SignIn($json_input_data){
+function SignIn($json){
 
   session_start();   //starting the session for user profile page
-  $obj = json_decode($json_input_data);
+  $username = $json->{'username'};
+  $password = $json->{'password'};
 
-  if(!empty($obj->{'username'}))   //checking the 'username' name which is from Sign-In.html, is it empty or have some text
+  if(!empty($username))
   {
-    $query = mysql_query("SELECT *  FROM members where username = $obj->{'username'} AND password = $obj->{'password'}") or die(mysql_error());
+    $query = mysql_query("SELECT *  FROM members where username = '$username' AND password = '$password'") or die(mysql_error());
     $row = mysql_fetch_array($query) or die(mysql_error());
 
     if(!empty($row['username']) AND !empty($row['password']))
     {
       $_SESSION['username'] = $row['password'];
       echo "SUCCESSFULLY LOGIN TO USER PROFILE PAGE...";
-      header('Location: page.php');
+      header('Location: page.php'); //
 
     }
     else
@@ -35,6 +36,7 @@ function SignIn($json_input_data){
 
 if(isset($_POST)){
    var_dump(file_get_contents('php://input'));
-   SignIn(json_decode(file_get_contents('php://input'),TRUE));
+   $json = json_decode(file_get_contents('php://input'),TRUE);
+   SignIn($json);
 }
 ?>

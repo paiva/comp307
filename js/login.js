@@ -15,6 +15,5 @@ $(document).ready(function(){
       request.open("POST", "login.php", true)
       request.setRequestHeader("Content-type", "application/json")
       request.send(str_json)
-
     });
 });
