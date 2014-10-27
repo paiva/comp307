@@ -6,17 +6,15 @@ $(document).ready(function(){
 
       var username=$('#username').val();
       var password=$('#password').val();
-      var json = JSON.stringify({
+      var str_json = JSON.stringify({
                                   "username": username,
                                   "password" : password
                                 });
-      $.ajax({
-        type: 'POST',
-        url: 'login.php',
-        data: {"username":username,"password":password},
-        success: function(msg) {
-          console.log(msg);
-        }
-      });
+
+      var request = new XMLHttpRequest();
+      request.open("POST", "login.php", true)
+      request.setRequestHeader("Content-type", "application/json")
+      request.send(str_json)
+
     });
 });
