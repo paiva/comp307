@@ -16,23 +16,26 @@ $(document).ready(function(){
     request.open("POST", "http://localhost/307/A2/login.php", true);
     //request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.setRequestHeader("Content-type", "application/json");
+
+    console.log(str_json);
+    // Callback function to handle the server response
     request.onreadystatechange = function() {
-    if(request.readyState == 4 && request.status == 200) {
-      key = "";
-      key = request.responseText;
+      if(request.readyState == 4 && request.status == 200) {
+        key = "";
+        key = request.responseText;
+        console.log(key);
         if(key != "" ){
-            console.log('here I am');
-            password = encrypt(password,key);
-            //jsonAndSend();
+          password = encrypt(password,key);
+          //jsonAndSend();
         } else{
-            document.getElementById("errDiv").innerHTML = "Username does not exist";
-            }
+          document.getElementById("errDiv").innerHTML = "Username does not exist";
+          }
       }
       request.send("username="+username);
       };
 
     function encrypt(input, key) {
-      key =  (26 - key) % 26;
+      key =  int((26 - key) % 26);
       var output = "";
       for (var i = 0; i < input.length; i++) {
           var c = input.charCodeAt(i);
