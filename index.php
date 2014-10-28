@@ -17,7 +17,7 @@
         body {
           padding-top: 40px;
           padding-bottom: 40px;
-          background-image: url("http://p1.pichost.me/i/17/1397422.jpg");
+          background-image: url("img/montreal.jpg");
           background-size: cover;
           z-index: 0;
         }
@@ -26,7 +26,7 @@
 
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
       <!--[if lt IE 9]>
-        <script src="../assets/js/html5shiv.js"></script>
+        <script src="js/html5shiv.js"></script>
       <![endif]-->
 
     </head>
