@@ -13,17 +13,16 @@ $(document).ready(function(){
                                 });
 
     var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost/307/A2/login.php", true);
-    //request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.setRequestHeader("Content-type", "application/json");
 
-    console.log(str_json);
+    // 1st request to getkey.php
+    request.open("POST", "http://localhost/307/A2/getkey.php", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     // Callback function to handle the server response
     request.onreadystatechange = function() {
       if(request.readyState == 4 && request.status == 200) {
         key = "";
         key = request.responseText;
-        console.log(key);
         if(key != "" ){
           password = encrypt(password,key);
           //jsonAndSend();
@@ -31,8 +30,12 @@ $(document).ready(function(){
           document.getElementById("errDiv").innerHTML = "Username does not exist";
           }
       }
-      request.send("username="+username);
-      };
+    // 2nd request to login.php
+    var connect = new XMLHttpRequest();
+    connect.open("POST", "http://localhost/307/A2/login.php", true);
+    connect.setRequestHeader("Content-type", "application/json");
+    connect.send("username="+username);
+    };
 
     function encrypt(input, key) {
       key =  int((26 - key) % 26);
