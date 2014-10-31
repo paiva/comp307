@@ -34,22 +34,25 @@ function decryptPassword($username,$encoded_password){
 };
 
 // SignIn function
-function SignIn($username){
+function SignIn($username,$password){
 
   session_start();
 
   if(!empty($username))
   {
-    $query = mysql_query("SELECT *  FROM members where username = $username") or die(mysql_error());
-    $row = mysql_fetch_array($query) or die(mysql_error());
+    //$query = mysql_query("SELECT *  FROM members where username = $username and password = $password") or die(mysql_error());
+    $query = "SELECT *  FROM members where username = '$username'";
+    $fetch = mysql_query($query) or die('query did not work');
+    $result = mysql_fetch_assoc($fetch) or die('did not work..');
 
-    if(!empty($row['username']) AND !empty($row['password']))
+    if(!empty($result['username']) AND !empty($result['password']))
     {
-      $_SESSION['username'] = $row['password'];
-      // Record Session
+      $uniqid = uniqid();
+      $memberID = $result['memberID'];
 
-      // Redirect to page.php
-      header('Location: page.php');
+      $q = mysql_query("INSERT INTO `sessions` (`memberID`, `sessionID`)
+                VALUES ('$memberID','$uniqid')") or die(mysql_error());
+
     }
     else{
       exit;
@@ -66,8 +69,9 @@ if(isset($_POST)){
   $encoded_password = $obj->{'password'};
   $decoded_password = decryptPassword($username,$encoded_password);
 
-  SignIn($username,$decoded_password);
-   
+  $var = SignIn($username,$decoded_password);
+  echo $var;
+  //if ($var) header('Location: page.php');
 }
 
 ?>
