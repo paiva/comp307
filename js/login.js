@@ -46,7 +46,12 @@ $(document).ready(function(){
     var logRequest = new XMLHttpRequest();
     logRequest.open("POST", "http://localhost/307/A2/login.php", true);
     logRequest.setRequestHeader("Content-type", "application/json");
-    logRequest.send(json);    
+    logRequest.send(json);
+    logRequest.onreadystatechange = function() {
+      if(logRequest.readyState == 4 && logRequest.status == 200) {
+        console.log(logRequest.responseText);
+      }
+    };
   };
 
   $('#errDiv').hide();
