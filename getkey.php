@@ -11,14 +11,13 @@ $db = mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysq
 
 // If request sent, SignIn
 if(isset($_POST)){
-   $json = file_get_contents('php://input');
-   $obj = json_decode($json,TRUE);
+  $username = file_get_contents('php://input');
+  $key = "SELECT sharedkey FROM members WHERE username = '$username'";
+ 	$fetch = mysql_query($key) or die('query did not work');
+  $result = mysql_fetch_assoc($fetch) or die('did not work..');
+  $sharedKey = $result['sharedkey'];
+  echo $sharedKey;
 
-   $key = "SELECT sharedkey FROM members WHERE username = $obj->{'username'}";
-   $fetch = mysql_query($key) or die('query did not work');
-   $result = mysql_fetch_assoc($fetch) or die('did not work..');
-   $sharedKey = $result['sharedkey'];
-   return $sharedKey
 }
 
 ?>
