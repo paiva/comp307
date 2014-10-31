@@ -2,8 +2,9 @@
 McGill WebServer Login Page.
 
 #to-dos
-* Fix login
+* Fix login script
 * Redirection to page.php
-* Record sessions in mysql
-* Encrypt password json
+* Create a record in the "Sessions" table when a member logs in,
+delete record when member logs out
+* Ceasar Cipher password encryption
 * Ofruscate login.js
