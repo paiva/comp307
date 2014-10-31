@@ -1,5 +1,11 @@
 <?php
-  $html = '
+  session_start();
+  if (empty($_SESSION['username'])){
+    header("Location: index.php");
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,8 +42,8 @@
           <a class="brand" href="#"><span style="font-family: "Exo";">McGill WebServer</span></a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-              Welcome <a href="#" class="navbar-link">$Username</a>
-              - <a href="#" class="navbar-link">Logout</a>
+              Welcome <?php echo $_SESSION['username']; ?>
+              - <a href="logout.php" class="navbar-link">Logout</a>
             </p>
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -121,22 +127,6 @@
 
     </div>
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
 
   </body>
-</html>';
-  echo $html;
-  // Output Username
-  // Delete Session when user clicks logout
-?>
+</html>
