@@ -46,7 +46,7 @@ $(document).ready(function(){
     var logRequest = new XMLHttpRequest();
     logRequest.open("POST", "http://localhost/307/A2/login.php", true);
     logRequest.setRequestHeader("Content-type", "application/json");
-    logRequest.send(json);
+    logRequest.send(json);    
   };
 
   $('#errDiv').hide();

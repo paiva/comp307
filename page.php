@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bug Report</title>
+    <title>McGill WebServer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#"><span style="font-family: "Exo";">Bug Report</span></a>
+          <a class="brand" href="#"><span style="font-family: "Exo";">McGill WebServer</span></a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               Welcome <a href="#" class="navbar-link">$Username</a>
@@ -137,4 +137,6 @@
   </body>
 </html>';
   echo $html;
+  // Output Username
+  // Delete Session when user clicks logout
 ?>

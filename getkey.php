@@ -1,5 +1,6 @@
 <?php
 
+//Change with the other vals
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'Q2DB');
 define('DB_USER','root');
