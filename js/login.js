@@ -29,12 +29,11 @@ $(document).ready(function(){
       if(keyRequest.readyState == 4 && keyRequest.status == 200) {
           key = '';
           key = keyRequest.responseText;
-          console.log(key);
           if(key != '' ){
             password = encrypt(password,key);
             if (password){
               var success = logIn(JSON.stringify({"username": username,"password" : password}));
-              if (success == false)
+              if(success == false)
                 return false;
             }
           }
@@ -56,12 +55,12 @@ $(document).ready(function(){
           document.getElementById("errDiv").innerHTML = "Invalid username and/or password";
           return false;
         }
-        else
+        else{
           document.write(logRequest.responseText);
-          return true;
+        }
       }
     };
-  };
+   };
 
   $('#errDiv').hide();
   $('#login').click(function(e){
@@ -69,8 +68,8 @@ $(document).ready(function(){
 
   var username = $('#username').val();
   var password = $('#password').val();
-  getKey(username,password);
-  if(!getKey(username,password))
+  var success = getKey(username,password);
+  if(!success)
     $('#errDiv').show();
   });
 });

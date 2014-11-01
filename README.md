@@ -2,6 +2,6 @@
 McGill WebServer Login Page.
 
 #to-dos
-* Display error message on login box if error
-* Ofruscate login.js
 * blur background image montreal
+* logs out when refresh
+* Ofruscate login.js
