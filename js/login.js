@@ -35,7 +35,7 @@ $(document).ready(function(){
               logIn(JSON.stringify({"username": username,"password" : password}));
             }
           } else{
-            document.getElementById("errDiv").innerHTML = "Username does not exist";
+            document.getElementById("errDiv").innerHTML = "Invalid username and/or password";
           }
         }
     }

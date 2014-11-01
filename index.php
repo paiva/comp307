@@ -17,8 +17,8 @@
         body {
           padding-top: 40px;
           padding-bottom: 40px;
-          background-image: url("img/montreal.jpg");
-          background-size: cover;
+          background:url("img/montreal.jpg");
+          background-size:cover;
           z-index: 0;
         }
       </style>
@@ -38,8 +38,8 @@
         <input type="text" class="input-block-level" placeholder="username" name="username" id="username">
         <input type="password" class="input-block-level" placeholder="password" name="password" id="password">
         <button class="btn btn-large btn-primary" type="submit" name="login" id="login">Login</button>
+        <div class="errDiv" id="errDiv"></div>
       </form>
-      <div id="errDiv"></div>
     </div>
     </body>
   </html>';

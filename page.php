@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#"><span style="font-family: "Exo";">McGill WebServer</span></a>
+          <a class="brand" href="#"><span style="font-family: 'Exo';font-weight: bold;"><span style="color:#D00000">McGill</span> WebServer</span></a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               Welcome <?php echo $_SESSION['username']; ?>
@@ -62,8 +62,6 @@
             <ul class="nav nav-list">
               <li class="nav-header">Status</li>
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Active</a></li>
-              <li><a href="#">Down</a></li>
               <li class="nav-header">Websites</li>
               <li><a href="http//www.mcgillcs.com">McGill CS</a></li>
               <li><a href="http://www.mcgilldevs.com">McGill Devs</a></li>
@@ -81,19 +79,44 @@
             <div class="span4">
               <h2>McGill CS</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><span class="btn btn-danger">Down</span><a class="btn" href="http//www.mcgillcs.com">View details &raquo;</a></p>
+              <p><?php ini_set("default_socket_timeout","05");
+                       set_time_limit(5);
+                       $f=fopen("http://www.mcgillcs.com","r");
+                       $r=fread($f,1000);
+                       fclose($f);
+                       if(strlen($r)>1) {
+                       echo("<span class='btn btn-success'>Active</span>");}
+                       else {
+                       echo("<span class='btn btn-danger'>Down</span>");}?>
+                       <a class="btn" href="http//www.mcgillcs.com">View details &raquo;</a></p>
             </div>
 
             <div class="span4">
               <h2>McGill Devs</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><span class="btn btn-danger">Down</span><a class="btn" href="http://www.mcgilldevs.com">View details &raquo;</a></p>
+              <p><?php ini_set("default_socket_timeout","05");
+                       set_time_limit(5);
+                       $f=fopen("http://www.mcgilldevs.com","r");
+                       $r=fread($f,1000);
+                       fclose($f);
+                       if(strlen($r)>1) {
+                       echo("<span class='btn btn-success'>Active</span>");}
+                       else {
+                       echo("<span class='btn btn-danger'>Down</span>");}?><a class="btn" href="http://www.mcgilldevs.com">View details &raquo;</a></p>
             </div>
 
             <div class="span4">
               <h2>SOCS</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><span class="btn btn-success">Active</span><a class="btn" href="http://www.cs.mcgill.ca">View details &raquo;</a></p>
+              <p><?php ini_set("default_socket_timeout","05");
+                       set_time_limit(5);
+                       $f=fopen("http://www.cs.mcgill.ca","r");
+                       $r=fread($f,1000);
+                       fclose($f);
+                       if(strlen($r)>1) {
+                       echo("<span class='btn btn-success'>Active</span>");}
+                       else {
+                       echo("<span class='btn btn-danger'>Down</span>");}?><a class="btn" href="http://www.cs.mcgill.ca">View details &raquo;</a></p>
             </div>
           </div>
 
@@ -102,18 +125,42 @@
             <div class="span4">
               <h2>CSUS</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><span class="btn btn-success">Active</span><a class="btn" href="http://csus.cs.mcgill.ca">View details &raquo;</a></p>
+              <p><?php ini_set("default_socket_timeout","05");
+                       set_time_limit(5);
+                       $f=fopen("http://csus.cs.mcgill.ca","r");
+                       $r=fread($f,1000);
+                       fclose($f);
+                       if(strlen($r)>1) {
+                       echo("<span class='btn btn-success'>Active</span>");}
+                       else {
+                       echo("<span class='btn btn-danger'>Down</span>");}?><a class="btn" href="http://csus.cs.mcgill.ca">View details &raquo;</a></p>
             </div>
 
             <div class="span4">
               <h2>HackMcGill</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><span class="btn btn-success">Active</span><a class="btn" href="http://www.hackmcgill.com">View details &raquo;</a></p>
+              <p><?php ini_set("default_socket_timeout","05");
+                       set_time_limit(5);
+                       $f=fopen("http://www.hackmcgill.com","r");
+                       $r=fread($f,1000);
+                       fclose($f);
+                       if(strlen($r)>1) {
+                       echo("<span class='btn btn-success'>Active</span>");}
+                       else {
+                       echo("<span class='btn btn-danger'>Down</span>");}?><a class="btn" href="http://www.hackmcgill.com">View details &raquo;</a></p>
             </div><!--/span-->
             <div class="span4">
               <h2>McHacks</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><span class="btn btn-success">Active</span><a class="btn" href="http://www.mchacks.io">View details &raquo;</a></p>
+              <p><?php ini_set("default_socket_timeout","05");
+                       set_time_limit(5);
+                       $f=fopen("http://www.mchacks.io","r");
+                       $r=fread($f,1000);
+                       fclose($f);
+                       if(strlen($r)>1) {
+                       echo("<span class='btn btn-success'>Active</span>");}
+                       else {
+                       echo("<span class='btn btn-danger'>Down</span>");}?><a class="btn" href="http://www.mchacks.io">View details &raquo;</a></p>
             </div>
           </div>
         </div>
