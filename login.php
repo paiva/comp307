@@ -16,7 +16,7 @@ function decryptPassword($username,$encoded_password){
   $decoded_password = "";
   $key = "SELECT sharedkey FROM members WHERE username = '$username'";
   $fetch = mysql_query($key) or die('query did not work');
-  $result = mysql_fetch_assoc($fetch) or die('did not work..');
+  $result = mysql_fetch_assoc($fetch) or die('logError');
   $sharedKey = $result['sharedkey'];
 
   // Decryption
@@ -76,7 +76,9 @@ if(isset($_POST)){
   $decoded_password = decryptPassword($username,$encoded_password);
 
   $var = SignIn($username,$decoded_password);
-  echo $var;
+  if ($var == 'logError')
+    header('Location: index.php');
+
 
 }
 

@@ -15,9 +15,10 @@ if(isset($_POST)){
   $username = file_get_contents('php://input');
   $key = "SELECT sharedkey FROM members WHERE username = '$username'";
  	$fetch = mysql_query($key) or die('query did not work');
-  $result = mysql_fetch_assoc($fetch) or die('did not work..');
+  $result = mysql_fetch_assoc($fetch) or die('error');
   $sharedKey = $result['sharedkey'];
   echo $sharedKey;
+
 
 }
 
