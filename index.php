@@ -1,5 +1,5 @@
 <?php
- 
+
  $html = '
   <!DOCTYPE html>
   <html lang="en">
@@ -17,7 +17,7 @@
         body {
           padding-top: 40px;
           padding-bottom: 40px;
-          background:url("img/montreal.jpg");
+          background:url("img/montreal2.jpg");
           background-size:cover;
           z-index: 0;
         }
